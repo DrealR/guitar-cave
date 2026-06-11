@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Guitar Cave — calm dark study tool.
+   Three interval colors, consistent EVERYWHERE:
+   root = gold · 3rd = blue (the soul) · 5th = gray (the spine)
+   ============================================================ */
+
+@theme {
+  --color-bg: #0f1115;
+  --color-surface: #161a21;
+  --color-surface-2: #1d232d;
+  --color-line: #28303d;
+  --color-text: #e8eaf0;
+  --color-dim: #9aa3b2;
+  --color-faint: #5d6675;
+
+  --color-root: #e0a93e;   /* gold — identity */
+  --color-third: #5b9dd9;  /* blue — the soul/mood */
+  --color-fifth: #939aa6;  /* gray — the spine/power */
+  --color-seventh: #b07fd6;/* the storyteller (b7) */
+  --color-accent: #4cc38a; /* go / done / good */
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--color-root); color: #14110a; }
+:focus-visible { outline: 2px solid var(--color-root); outline-offset: 2px; border-radius: 6px; }
+
+@layer components {
+  .card { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: 1rem; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    border: 1px solid var(--color-line); background: var(--color-surface-2);
+    border-radius: 999px; padding: 0.45rem 0.85rem;
+    font-size: 0.85rem; font-weight: 600; color: var(--color-dim);
+    min-height: 44px; /* touch target */
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+  .chip[data-on="true"], .chip:hover { color: var(--color-text); border-color: var(--color-root); }
+  .chip[data-on="true"] { background: color-mix(in srgb, var(--color-root) 16%, var(--color-surface-2)); }
+
+  .dot-root  { background: var(--color-root);  color: #14110a; }
+  .dot-third { background: var(--color-third); color: #0b1320; }
+  .dot-fifth { background: var(--color-fifth); color: #11141a; }
+  .dot-seventh { background: var(--color-seventh); color: #160d1d; }
+
+  .legend { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--color-dim); }
+  .legend i { width: 0.8rem; height: 0.8rem; border-radius: 999px; display: inline-block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
