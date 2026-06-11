@@ -4,7 +4,7 @@
 daily practice loop, and the songs. One place instead of scattered worksheets and photos.
 Built for one player who practices twice a day and checks this on his phone between reps.
 
-> **Live:** _(deploying — link lands here on first ship)_
+> **Live: https://guitar-cave.vercel.app** · [fretboard](https://guitar-cave.vercel.app/fretboard) · [chords](https://guitar-cave.vercel.app/chords) · [songs](https://guitar-cave.vercel.app/songs)
 
 > **The tool serves the reps — it does not replace them.**
 
