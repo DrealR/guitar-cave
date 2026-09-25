@@ -3,6 +3,7 @@
 import { useStore } from "@/components/tracker/useStore.ts";
 import TodayView from "@/components/tracker/TodayView";
 import SkillsSection from "@/components/tracker/SkillsSection";
+import PulseCard from "@/components/pulse/PulseCard";
 
 export default function TrackerPage() {
   const { doc, ready, update } = useStore();
@@ -19,6 +20,7 @@ export default function TrackerPage() {
 
       {ready ? (
         <>
+          <PulseCard settings={doc.pulse} update={update} />
           <TodayView loop={doc.loop} sessions={doc.sessions} update={update} />
           <SkillsSection skills={doc.skills} update={update} />
         </>
@@ -33,6 +35,7 @@ export default function TrackerPage() {
 function Skeleton() {
   return (
     <div className="flex animate-pulse flex-col gap-8" aria-hidden>
+      <div className="card h-80" />
       <div className="card h-72" />
       <div className="card h-96" />
     </div>

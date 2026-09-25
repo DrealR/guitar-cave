@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import PulsePill from "@/components/pulse/PulsePill";
 
 const TABS = [
   { href: "/", label: "Practice", icon: "✓" },
@@ -23,6 +24,7 @@ export default function Nav() {
           <Link href="/" className="text-lg font-bold tracking-tight">
             Guitar <span className="text-root">Cave</span>
           </Link>
+          <PulsePill />
           <nav className="hidden gap-1 md:flex" aria-label="Main">
             {TABS.map((t) => (
               <Link
