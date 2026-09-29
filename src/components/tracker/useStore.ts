@@ -3,7 +3,8 @@
 /* ============================================================
    One localStorage doc owns all live data: the loop, the
    skill grades, per-day session checks, custom songs, the
-   playlist URL, and the learning-queue "started" marks.
+   playlist URL, the learning-queue "started" marks, and the
+   metronome's last settings.
    Seeds come from src/lib; the doc never mutates in place.
    ============================================================ */
 
@@ -17,6 +18,7 @@ import {
   type SkillCategory,
 } from "@/lib/tracker-data.ts";
 import { PLAYLIST_URL, type Song, type SongSection } from "@/lib/songs-data.ts";
+import { DEFAULT_PULSE, sanitizePulse, type PulseSettings } from "@/lib/pulse.ts";
 
 export const STORE_KEY = "guitar-cave-v1";
 
@@ -32,6 +34,8 @@ export type StoreDoc = {
   playlistUrl: string | null;
   /** learning-queue titles marked "started" */
   queueStarted: string[];
+  /** the metronome: last tempo, meter and feel */
+  pulse: PulseSettings;
 };
 
 export function defaultDoc(): StoreDoc {
@@ -42,6 +46,7 @@ export function defaultDoc(): StoreDoc {
     customSongs: [],
     playlistUrl: PLAYLIST_URL,
     queueStarted: [],
+    pulse: { ...DEFAULT_PULSE },
   };
 }
 
@@ -129,6 +134,7 @@ export function sanitizeDoc(raw: unknown): StoreDoc {
     customSongs: Array.isArray(o.customSongs) ? o.customSongs.filter(isSong) : [],
     playlistUrl: typeof o.playlistUrl === "string" && o.playlistUrl ? o.playlistUrl : seed.playlistUrl,
     queueStarted: isStringArray(o.queueStarted) ? o.queueStarted : [],
+    pulse: sanitizePulse(o.pulse),
   };
 }
 
