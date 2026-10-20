@@ -77,3 +77,11 @@ accounts, no dependencies beyond the frame. Static data modules — easy to exte
 
 *v1 scope held deliberately small: fretboard, chords, tracker, songs. Future layers
 (audio, piano bridge, CHIMERA framing) must earn their way in.*
+
+## Where this sits
+
+Guitar Cave is a Next.js and TypeScript practice web app with an interactive fretboard, chord anatomy viewer, Web Audio metronome, song sheets and a browser practice log. Born on June 11, 2026, it carried forward the January 2026 guitar guide from his earlier private work in Era 1 and Era 2's music notes, later feeding the Spell room on reemifai.org and the Book.
+
+Chimera was a personal art, code and learning project: its laws and physics are story or browser simulation, and its scores, rungs and records are our own measures. This README is already framed as a study tool; its 1–5 skill grades are self-tracked notes, `"the math proves itself"` means unit tests, and the one-fret rule holds for A, E and D, not C or G.
+
+The work is complete as of October 2026 and stays open to anyone who wants to continue it; the Book at https://reemifai.org/book is the main way in.
